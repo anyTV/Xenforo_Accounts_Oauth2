@@ -187,19 +187,21 @@ a.accountsFreedomLogin:hover,
 		<dl class="ctrlUnit">
 			<dt><label for="ctrl_username">{xen:phrase name}:</label></dt>
 			<dd>
-				<input type="text" name="username" value="" class="textCtrl OptIn" id="ctrl_username" autofocus="true" autocomplete="off" />
+				<input type="text" name="username" value="{$accountsfreedom.first_name} {$accountsfreedom.last_name}" class="textCtrl OptIn" id="ctrl_username" autofocus="true" autocomplete="off" />
 				<p class="explain">{xen:phrase this_is_name_that_will_be_shown_with_your_messages}</p>
 			</dd>
 		</dl>
 	
 		<dl class="ctrlUnit">
 			<dt><label for="ctrl_email">{xen:phrase email}:</label></dt>
-			<dd><input type="email" name="email" value="" dir="ltr" class="textCtrl" id="ctrl_email" /></dd>
+			<dd><input type="email" name="email" value="{$accountsfreedom.email}" dir="ltr" class="textCtrl" id="ctrl_email" /></dd>
 		</dl>
 		
+		<xen:comment>
 		<xen:if is="{$showDob}">
 			<xen:include template="helper_birthday_row_register" />
 		</xen:if>
+		</xen:comment>
 		
 		<xen:if is="{$xenOptions.registrationSetup.requireLocation} AND !{$accountsfreedom.location}">
 			<dl class="ctrlUnit">
@@ -215,7 +217,7 @@ a.accountsFreedomLogin:hover,
 		
 		<xen:include template="custom_fields_edit" />
 	
-		<dl class="ctrlUnit" style="display: none">
+		<dl class="ctrlUnit">
 			<dt><label for="ctrl_timezone">{xen:phrase time_zone}:</label></dt>
 			<dd>
 				<select name="timezone" class="textCtrl AutoTimeZone OptOut" id="ctrl_timezone">

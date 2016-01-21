@@ -119,6 +119,12 @@ class AnyTV_AccountsAuthentication_XenForo_ControllerPublic_Register extends XFC
 			$existingUser = $userModel->getUserById($assocUserId);
 		}
 
+		$existingUser = $userModel->getUserByEmail($accountsUser['email']);
+
+		if ($existingUser) {
+			$emailMatch = true;
+		}
+
 		$viewName = 'AnyTV_AccountsAuthentication_ViewPublic_Accounts_Register';
 		$templateName = 'register_accountsfreedom';
 
@@ -244,10 +250,10 @@ class AnyTV_AccountsAuthentication_XenForo_ControllerPublic_Register extends XFC
 		}
 
 		$writer = $this->_setupExternalUser($data);
-		if (!$this->_validateBirthdayInput($writer, $birthdayError))
+		/*if (!$this->_validateBirthdayInput($writer, $birthdayError))
 		{
 			$writer->error($birthdayError);
-		}
+		}*/
 
 		$spamModel = $this->_runSpamCheck($writer);
 

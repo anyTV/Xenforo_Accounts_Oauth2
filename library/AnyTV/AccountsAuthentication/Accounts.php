@@ -2,9 +2,9 @@
 
 class AnyTV_AccountsAuthentication_Accounts
 {
-	protected $schema 	= 'http';
+	protected $schema 	= 'https';
 	//protected $api 		= 'api.accounts.freedom.tm/v2';
-	protected $api 		= '127.0.0.1:8000';
+	protected $api 		= 'accounts.freedom.tm/api/v2';
 
 	/**
 	 * @var string
@@ -92,7 +92,7 @@ class AnyTV_AccountsAuthentication_Accounts
 			. '&redirect_uri=' . urlencode($redirectUri)
 			. '&state=' . $state
 			. '&roles=profile,email'
-			. 'access_type=offline'
+			. '&access_type=offline'
 			. '&response_type=code';
 	}
 
